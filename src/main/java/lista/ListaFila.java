@@ -7,10 +7,6 @@ package lista;
 public class ListaFila {
     private Elemento inicio, atual, aux;
     
-    public boolean empty() {
-        return inicio == null;
-    }
-    
     public void enqueue(Object objeto) {
         if (empty()) {
             inicio = new Elemento(objeto, null, null);
@@ -22,15 +18,6 @@ public class ListaFila {
         }
     }
     
-    public void front() {
-        Elemento e = inicio;
-        Aluno a;
-        if (!empty()) {
-            a = (Aluno) e.getObj();
-            System.out.println(a.toString());
-        }
-    }
-    
     public void dequeue(){
         Elemento e = atual;
         if (e != null) {
@@ -38,6 +25,19 @@ public class ListaFila {
             atual=aux;
             e.setAnt(null);
             atual.setProx(null);
+        }
+    }
+    
+    public boolean empty() {
+        return inicio == null;
+    }
+    
+    public void front() {
+        Elemento e = inicio;
+        Aluno a;
+        if (!empty()) {
+            a = (Aluno) e.getObj();
+            System.out.println(a.toString());
         }
     }
     

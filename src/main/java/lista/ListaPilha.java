@@ -7,10 +7,6 @@ package lista;
 public class ListaPilha {
     private Elemento inicio, atual, aux;
     
-    public boolean empty() {
-        return inicio == null;
-    }
-    
     public void push(Object objeto) {
         if (empty()) {
             inicio = new Elemento(objeto, null, null);
@@ -22,21 +18,25 @@ public class ListaPilha {
         }
     }
     
-    public void top() {
-        Elemento e = inicio;
-        Aluno a;
-        if (!empty()) {
-            a = (Aluno) e.getObj();
-            System.out.println(a.toString());
-        }
-    }
-    
     public void pop(){
         Elemento e = inicio;
         if (e != null) {
             inicio=e.getProx();
             e.setProx(null);
             inicio.setAnt(null);
+        }
+    }
+    
+    public boolean empty() {
+        return inicio == null;
+    }
+    
+    public void top() {
+        Elemento e = inicio;
+        Aluno a;
+        if (!empty()) {
+            a = (Aluno) e.getObj();
+            System.out.println(a.toString());
         }
     }
     
